@@ -73,7 +73,7 @@ a.eval {
 }
 
 h1, h2, h3, h4 {
-    margin: 0 0 .5em;
+    margin: 0 0 2em;
     font-size: 1.5em;
     font-weight: bold;
 }
@@ -98,7 +98,7 @@ h3 {
 }
 
 h4 {
-    margin-bottom: .25em;
+    text-align: center;
     font-size: 1.1em;
 }
 

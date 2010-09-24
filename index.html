@@ -8,7 +8,7 @@
         <meta name="author" content="Jonathan Hedstrom" />
         <meta name="author" content="Marcus Estes" />
         <meta name="company" content="OpenSourcery" />
-        <meta name="email" content="j.boggiano@seld.be" />
+        <meta name="email" content="jhedstrom@opensourcery.com" />
         <meta name="presdate" content="2010-10-03" />
         <!-- Slippy core file and dependencies -->
         <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
@@ -67,102 +67,82 @@
 
         <div class="slide">
             <h1>Introduction</h1>
-            <div class="vcenter">
-              <h2>Marcus Estes</h2>
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-	      <h2>Jonathan Hedstrom</h2>
-	      <ul>
-		<li>jhedstrom on d.o.</li>
-		<li><em>@</em>jhedstro</li>
-	      </ul>
-	    </div>
+            <h2>Marcus Estes</h2>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+	    <h2>Jonathan Hedstrom</h2>
+	    <ul>
+	      <li>jhedstrom on d.o.</li>
+	      <li><em>@</em>jhedstro</li>
+	    </ul>
         </div>
 
 	<!-- Summary of developer workflows and practices -->
         <div class="slide">
             <h1>Development practices that encourage the release of code</h1>
-            <div class="vcenter">
-                <ol>
-                    <li>Workflow that encourages pushing patches upstream</li>
-                    <li>Well crafted <em>features</em></li>
-		    <li>Installation profiles</li>
-		    <li>Putting it all together</li>
-                </ol>
-            </div>
+            <ol>
+              <li>Workflow that encourages pushing patches upstream</li>
+              <li>Well crafted <em>features</em></li>
+	      <li>Reusable themes</li>
+	      <li>Installation profiles</li>
+	      <li>Putting it all together</li>
+            </ol>
         </div>
 
-        <div class="slide" layout="alt">
-            <h1>Layouts</h1>
-            <h2>This slide uses the "alt" layout</h2>
-            <p>It inherits the class "nochrome" of the layout, which allows you to style it differently, and it doesn't have the footer div that the default layout has for example</p>
-            <p>By default, all slides use the default layout if it's present</p>
-            <p>Layouts must have a &lt;content&gt;&lt;/content&gt; tag that will be replaced by each slide's content</p>
-            <pre class="brush: html">
-                <div class="slide" layout="alt">
-                    Foo
-                </div>
+	<div class="slide">
+	  <h1>There will always be bugs</h1>
+	  <h4>(and missing features)</div>
+	</div>
 
-                <div class="layout" name="default">
-                    <content></content>
-                    <div class="footer">
-                        <em>Foobar</em>
-                    </div>
-                </div>
+	<div class="slide">
+	  <h1>drush make</h1>
+	  <pre class="brush: bash">
+projects[views][subdir] = "contrib"
+projects[views][version] = "2.11"
+; http://drupal.org/node/862072
+projects[views][patch][] = "http://drupal.org/files/issues/views.862072.patch"
+	  </pre>
+	</div>
 
-                <div class="layout nochrome" name="alt">
-                    <content></content>
-                </div>
-            </pre>
-        </div>
+	<div class="slide">
+	  <h1>docs directory</h1>
+	  <pre class="brush">
+.htaccess
+README.txt
+vertical_tabs.626126.patch
+views.862072-7.patch
+	  </pre>
+	</div>
 
-        <div class="slide">
-            <h1>Syntax Highlighting</h1>
-            <p>Code is just pre tags with class="brush: &lt;language&gt;"</p>
-            <p>The eval class combined with the js brush makes that Execute link appear on the right</p>
-            <pre class="brush: js eval">
-                // in eval'd block, slide is the current slide
-                $(slide).css('background', '#533');
-                // and node is the code block
-                $(node).css('opacity', '.1');
-            </pre>
-            <p>Nifty feature for JS devs doing presentations</p>
-            <br />
-            <p>Also if you use alert() in your code, it's piped into those nicer boxes</p>
-            <pre class="brush: js eval">
-                alert('test');
-            </pre>
-            <p>This is really great to provide interaction during a presentation</p>
-        </div>
+	<div class="slide">
+	  <h1>Well crafted features</h1>
+	</div>
 
-        <div class="slide">
-            <h1>Syntax Highlighting</h1>
-            <pre class="brush: php">
-                function foo($var) {
-                    // this is some php code as an example
-                    $foo = new Class("meh");
-                    $foo->bar();
-                }
-            </pre>
-            <p>That's it for now, enjoy!</p>
-        </div>
+	<div class="slide">
+	  <h1>Reusable themes</h1>
+	  <h4>(sub sub themes!)</h4>
+	</div>
 
-        <div class="layout" name="default">
+	<div class="slide">
+	  <h1>Build installation profiles</h1>
+	  <h4>(until the last possible moment)</h4>
+	</div>
+
+	<div class="slide">
+	  <h1>Putting it all together</h1>
+	</div>
+
+	<div class="slide">
+	  <h1>Questions?</h1>
+	</div>
+
+        <div class="layout nochrome" name="default">
+	  <div class="vcenter">
             <content></content>
-            <div class="footer">
-                <span class="left">Jordi Boggiano</span>
-                <span class="right">Slippy on <a href="http://github.com/Seldaek/slippy/">github</a></span>
-                <span class="left">Blog <a href="http://seld.be/">seld.be</a></span>
-                <span class="right">Twitter <a href="http://twitter.com/seldaek">@seldaek</a></span>
-                <hr class="defloat" />
-            </div>
-        </div>
-
-        <div class="layout nochrome" name="alt">
-            <content></content>
+	  </div>
         </div>
     </body>
 </html>

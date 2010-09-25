@@ -21,6 +21,7 @@ body {
     vertical-align: middle;
     background: inherit;
     overflow: hidden;
+    line-height:55px;
 }
 
 body.overview {

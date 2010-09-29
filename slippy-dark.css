@@ -71,6 +71,9 @@ a.eval {
 .slide.big .slideContent > *:not(.footer) {
     font-size: 1.7em;
 }
+.slide.small .slideContent > *:not(.footer) {
+    font-size: 0.5em;
+}
 
 h1, h2, h3, h4 {
     margin: 0 0 2em;
@@ -151,4 +154,13 @@ a[rel=src]:before {
     -webkit-border-radius: .3em;
     -moz-border-radius: .3em;
     border-radius: .3em;
+}
+
+.xout {
+  color: red;
+  font-size: 75em;
+  z-index: 99;
+  position: relative;
+  text-align: center;
+  top: -30%;
 }

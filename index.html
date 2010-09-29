@@ -208,6 +208,49 @@ views.862072-7.patch
 	  <h4>(until the last possible moment)</h4>
 	</div>
 
+	<div class="slide small">
+	  <pre class="brush: php">
+	      if ($task == 'profile') {
+   // Insert default user-defined node types into the database. For a complete
+    // list of available node type attributes, refer to the node type API
+    // documentation at: http://api.drupal.org/api/HEAD/function/hook_node_info.
+    $types = array(
+      array(
+        'type' => 'page',
+        'name' => st('Page'),
+        'module' => 'node',
+        'description' => st("A <em>page</em> is a simple method for creating and displaying information that rarely changes, such as an \"Abo
+ut us\" section of a website. By default, a <em>page</em> entry does not allow visitor comments and is not featured on the site's initial hom
+e page."),
+        'custom' => TRUE,
+        'modified' => TRUE,
+        'locked' => FALSE,
+        'help' => '',
+        'min_word_count' => '',
+      ),
+    );
+
+    foreach ($types as $type) {
+      $type = (object) _node_type_set_defaults($type);
+      node_type_save($type);
+    }
+
+    // Default page to not be promoted, and have comments disabled, and create new revisions.
+    variable_set('node_options_page', array('status', 'revision'));
+    variable_set('comment_page', COMMENT_NODE_DISABLED);
+
+    // Don't display date and author information for page nodes by default.
+    $theme_settings = variable_get('theme_settings', array());
+    $theme_settings['toggle_node_info_page'] = FALSE;
+    variable_set('theme_settings', $theme_settings);
+
+    // Admin theme.
+    variable_set('admin_theme', 'rubik');
+
+	  </pre>
+	  <div class="xout">X</div>
+	</div>
+
 	<div class="slide big">
 	  <h1>Putting it all together</h1>
 	</div>

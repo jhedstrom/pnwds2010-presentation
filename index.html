@@ -198,6 +198,11 @@ views.862072-7.patch
 	  <h1>Well crafted features</h1>
 	</div>
 
+	<div class="slide">
+	  <h1>Avoid altering re-useable features</h1>
+	  <h4>Instead, consider using alter hooks when possible</h4>
+	</div>
+
 	<div class="slide big">
 	  <h1>Reusable themes</h1>
 	  <h4>(sub sub themes!)</h4>
@@ -248,12 +253,75 @@ e page."),
     variable_set('admin_theme', 'rubik');
 
 	  </pre>
+	</div>
+
+	<div class="slide small">
+	  <pre class="brush: php">
+	      if ($task == 'profile') {
+   // Insert default user-defined node types into the database. For a complete
+    // list of available node type attributes, refer to the node type API
+    // documentation at: http://api.drupal.org/api/HEAD/function/hook_node_info.
+    $types = array(
+      array(
+        'type' => 'page',
+        'name' => st('Page'),
+        'module' => 'node',
+        'description' => st("A <em>page</em> is a simple method for creating and displaying information that rarely changes, such as an \"Abo
+ut us\" section of a website. By default, a <em>page</em> entry does not allow visitor comments and is not featured on the site's initial hom
+e page."),
+        'custom' => TRUE,
+        'modified' => TRUE,
+        'locked' => FALSE,
+        'help' => '',
+        'min_word_count' => '',
+      ),
+    );
+
+    foreach ($types as $type) {
+      $type = (object) _node_type_set_defaults($type);
+      node_type_save($type);
+    }
+
+    // Default page to not be promoted, and have comments disabled, and create new revisions.
+    variable_set('node_options_page', array('status', 'revision'));
+    variable_set('comment_page', COMMENT_NODE_DISABLED);
+
+    // Don't display date and author information for page nodes by default.
+    $theme_settings = variable_get('theme_settings', array());
+    $theme_settings['toggle_node_info_page'] = FALSE;
+    variable_set('theme_settings', $theme_settings);
+
+    // Admin theme.
+    variable_set('admin_theme', 'rubik');
+
+	  </pre>
 	  <div class="xout">X</div>
 	</div>
 
 	<div class="slide">
 	  <h1>Profiler library</h1>
 	  <h4><a href="http://drupal.org/project/profiler">http://drupal.org/project/profiler</a></h4>
+	</div>
+
+	<div class="slide">
+	  <h1>Enable modules</h1>
+	  <pre class="brush">
+	    dependencies[] = foobar
+	    dependencies[] = custom_feature
+	  </pre>
+	</div>
+
+	<div class="slide">
+	  <h1>Set variables</h1>
+	  <pre class="brush">
+	    variables[site_name] = My Awesome Site
+	    variables[front_page] = welcome
+	  </pre>
+	</div>
+
+	<div class="slide">
+	  <h1>Create users, nodes, and run install hooks</h1>
+	  <h4>(Has a very verbose and helpful README.txt)</h4>
 	</div>
 
 	<div class="slide big">
@@ -268,6 +336,8 @@ e page."),
 	  <h1>Thank you</h1>
 	  <ul>
 	    <li>Presentation made with HTML, JS, CSS and the slippy library (<a href="http://slides.seld.be">http://slides.seld.be</a>)</li>
+	    <li>Slides available at <a href="http://github.com/jhedstrom/pnwds2010-presentation">http://github.com/jhedstrom/pnwds2010-presentation</a></li>
+	    </ul>
 	</div>
 
         <div class="layout nochrome" name="default">

@@ -158,9 +158,10 @@ a[rel=src]:before {
 
 .xout {
   color: red;
-  font-size: 75em;
+  font-size: 77em;
   z-index: 99;
-  position: relative;
+  position: absolute;
   text-align: center;
-  top: -30%;
+  top: 200px;
+  left: 25%;
 }

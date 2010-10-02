@@ -305,7 +305,7 @@ e page."),
 
 	<div class="slide">
 	  <h1>Enable modules</h1>
-	  <pre class="brush">
+	  <pre class="brush: bash">
 	    dependencies[] = foobar
 	    dependencies[] = custom_feature
 	  </pre>
@@ -313,7 +313,7 @@ e page."),
 
 	<div class="slide">
 	  <h1>Set variables</h1>
-	  <pre class="brush">
+	  <pre class="brush: bash">
 	    variables[site_name] = My Awesome Site
 	    variables[front_page] = welcome
 	  </pre>
@@ -321,6 +321,25 @@ e page."),
 
 	<div class="slide">
 	  <h1>Create users, nodes, and run install hooks</h1>
+	  <pre class="brush: bash">
+	    ; Create an administrative user
+users[admin][uid] = 1
+users[admin][name] = Administrator
+users[admin][mail] = webmaster@example.com
+users[admin][roles] = administrator
+users[admin][status] = 1
+
+; About page.
+nodes[about][type] = page
+nodes[about][title] = About My Site
+nodes[about][body] = Placeholder content for the about page.
+nodes[about][uid] = 1
+nodes[about][menu][link_title] = About
+nodes[about][menu][menu_name] = primary-links
+nodes[about][path] = about
+	  </pre>
+
+
 	  <h4>(Has a very verbose and helpful README.txt)</h4>
 	</div>
 

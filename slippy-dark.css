@@ -165,3 +165,5 @@ a[rel=src]:before {
   top: 200px;
   left: 25%;
 }
+
+.center { text-align: center; }
